@@ -1,0 +1,2968 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAVÉA — The Art of Modest Elegance</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+ --ivory:#f8f5ef;
+ --paper:#fffefa;
+ --cream:#eee7dc;
+ --gold:#b69a6a;
+ --gold-light:#d9c6a0;
+ --brown:#594638;
+ --dark:#29221d;
+ --muted:#94877b;
+ --line:#e9e0d4;
+ --green:#68745e;
+ --red:#a85d50;
+ --shadow:0 18px 55px rgba(61,44,30,.09);
+ --serif:'Playfair Display',serif;
+ --sans:'DM Sans',sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ivory);color:var(--dark);font-family:var(--sans)}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+.hidden{display:none!important}
+.container{width:min(1240px,92%);margin:auto}
+
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
+ outline:2px solid var(--gold);
+ outline-offset:3px;
+}
+
+.topbar{
+ background:var(--dark);
+ color:#e9dfd1;
+ text-align:center;
+ padding:10px;
+ font-size:9px;
+ letter-spacing:3px;
+}
+
+header{
+ position:sticky;
+ top:0;
+ z-index:50;
+ background:rgba(248,245,239,.96);
+ backdrop-filter:blur(15px);
+ border-bottom:1px solid var(--line);
+}
+
+.nav{
+ height:83px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:20px;
+}
+
+.logo{
+ font:30px var(--serif);
+ letter-spacing:6px;
+ color:var(--brown);
+ line-height:1;
+}
+
+.logo small{
+ display:block;
+ font:8px var(--sans);
+ letter-spacing:3px;
+ color:var(--gold);
+ margin-top:8px;
+}
+
+.navlinks{
+ display:flex;
+ gap:25px;
+ align-items:center;
+}
+
+.navlinks button{
+ border:0;
+ background:none;
+ font-size:10px;
+ letter-spacing:1.5px;
+ color:var(--dark);
+ font-weight:700;
+ transition:.25s;
+}
+
+.navlinks button:hover{color:var(--gold)}
+
+.nav-actions{
+ display:flex;
+ gap:9px;
+ align-items:center;
+}
+
+.icon-btn{
+ border:1px solid var(--line);
+ background:transparent;
+ padding:11px 15px;
+ font-size:10px;
+ letter-spacing:.5px;
+ color:var(--brown);
+ transition:.25s;
+}
+
+.icon-btn:hover{
+ background:var(--brown);
+ border-color:var(--brown);
+ color:white;
+}
+
+.menu-toggle{display:none}
+
+.primary,.secondary,.dark-btn,.gold-btn,.danger,.success{
+ border:1px solid transparent;
+ padding:13px 21px;
+ font-size:10px;
+ letter-spacing:1.3px;
+ font-weight:700;
+ transition:all .25s ease;
+ border-radius:2px;
+}
+
+.primary{
+ background:var(--brown);
+ color:white;
+ border-color:var(--brown);
+}
+
+.primary:hover{
+ background:var(--dark);
+ border-color:var(--dark);
+ transform:translateY(-2px);
+ box-shadow:0 8px 20px rgba(41,34,29,.15);
+}
+
+.secondary{
+ background:transparent;
+ border-color:var(--gold);
+ color:var(--brown);
+}
+
+.secondary:hover{
+ background:var(--gold);
+ color:white;
+ transform:translateY(-2px);
+}
+
+.dark-btn{background:var(--dark);color:white}
+.dark-btn:hover{background:var(--brown);transform:translateY(-2px)}
+.gold-btn{background:var(--gold);color:white}
+.gold-btn:hover{background:var(--brown)}
+.danger{background:var(--red);color:white}
+.danger:hover{background:#87483f}
+.success{background:var(--green);color:white}
+.success:hover{background:#4e5b45}
+
+.eyebrow{
+ font-size:9px;
+ letter-spacing:4px;
+ color:var(--gold);
+ font-weight:700;
+}
+
+.hero{
+ min-height:610px;
+ display:grid;
+ grid-template-columns:1.02fr .98fr;
+ background:#e9e0d4;
+ overflow:hidden;
+}
+
+.hero-content{
+ padding:90px max(7%,calc((100vw - 1240px)/2));
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ align-items:flex-start;
+}
+
+.hero h1{
+ font:clamp(48px,6vw,83px)/1.08 var(--serif);
+ color:var(--brown);
+ margin:24px 0;
+}
+
+.hero p{
+ font-size:13px;
+ line-height:2;
+ color:#76695e;
+ max-width:430px;
+}
+
+.hero-buttons{
+ display:flex;
+ gap:12px;
+ flex-wrap:wrap;
+ margin-top:32px;
+}
+
+.hero-image{
+ min-height:610px;
+ position:relative;
+ background:#d8c9b8;
+}
+
+.hero-image img{
+ width:100%;
+ height:100%;
+ min-height:610px;
+ object-fit:cover;
+}
+
+.hero-note{
+ position:absolute;
+ right:35px;
+ bottom:35px;
+ background:rgba(255,253,249,.93);
+ padding:20px 25px;
+ text-align:center;
+}
+
+.hero-note span{font:20px var(--serif);color:var(--brown)}
+.hero-note small{
+ display:block;
+ font-size:8px;
+ letter-spacing:2px;
+ color:var(--gold);
+ margin-top:5px;
+}
+
+.section{padding:88px 0}
+.section-heading{text-align:center;margin-bottom:42px}
+.section-heading h2{
+ font:42px var(--serif);
+ color:var(--brown);
+ margin:13px 0;
+}
+.section-heading p{
+ font-size:12px;
+ color:var(--muted);
+ line-height:1.8;
+}
+
+.category-grid{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:18px;
+}
+
+.category-card{
+ background:var(--paper);
+ border:1px solid var(--line);
+ padding:35px 18px;
+ text-align:center;
+ cursor:pointer;
+ transition:.3s;
+}
+
+.category-card:hover{
+ transform:translateY(-6px);
+ box-shadow:var(--shadow);
+ border-color:var(--gold-light);
+}
+
+.category-card .symbol{
+ font:30px var(--serif);
+ color:var(--gold);
+ margin-bottom:16px;
+}
+
+.category-card h3{font:22px var(--serif);color:var(--brown)}
+.category-card p{
+ font-size:10px;
+ color:var(--muted);
+ margin-top:8px;
+ letter-spacing:1px;
+}
+
+.soft-section{background:#f0e9df}
+
+.product-grid{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:22px;
+}
+
+.product-card{
+ background:var(--paper);
+ border:1px solid var(--line);
+ overflow:hidden;
+ position:relative;
+ transition:.3s;
+}
+
+.product-card:hover{
+ transform:translateY(-5px);
+ box-shadow:var(--shadow);
+}
+
+.product-image{
+ height:290px;
+ background:#e9e0d5;
+ overflow:hidden;
+ position:relative;
+}
+
+.product-image img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ transition:.5s;
+}
+
+.product-card:hover .product-image img{transform:scale(1.045)}
+
+.product-tag{
+ position:absolute;
+ top:13px;
+ left:13px;
+ background:var(--paper);
+ color:var(--brown);
+ font-size:8px;
+ letter-spacing:1.5px;
+ padding:7px 10px;
+}
+
+.product-info{padding:18px}
+.product-category{
+ font-size:8px;
+ letter-spacing:2px;
+ color:var(--gold);
+ font-weight:700;
+}
+
+.product-info h3{
+ font:19px var(--serif);
+ color:var(--brown);
+ margin:9px 0;
+}
+
+.product-price{font-size:13px;font-weight:700}
+.product-meta{font-size:10px;color:var(--muted);margin-top:7px}
+
+.product-actions{
+ display:flex;
+ gap:8px;
+ margin-top:16px;
+}
+
+.product-actions button{
+ flex:1;
+ padding:10px 5px;
+ font-size:9px;
+}
+
+.promo-strip{
+ background:var(--dark);
+ color:#f5eee4;
+ padding:55px 20px;
+ text-align:center;
+}
+
+.promo-strip h2{font:36px var(--serif);margin:12px 0}
+.promo-strip p{
+ font-size:11px;
+ color:#c8b9a8;
+ letter-spacing:1px;
+}
+
+.features{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:18px;
+}
+
+.feature{
+ padding:30px 20px;
+ text-align:center;
+ border:1px solid var(--line);
+ background:var(--paper);
+}
+
+.feature .symbol{font-size:22px;color:var(--gold);margin-bottom:15px}
+.feature h3{font:21px var(--serif);color:var(--brown)}
+.feature p{
+ font-size:11px;
+ line-height:1.8;
+ color:var(--muted);
+ margin-top:9px;
+}
+
+footer{
+ background:var(--dark);
+ color:#eee5d9;
+ padding:60px 0 25px;
+}
+
+.footer-grid{
+ display:grid;
+ grid-template-columns:2fr 1fr 1fr;
+ gap:45px;
+}
+
+footer h3{font:30px var(--serif);letter-spacing:5px}
+footer h4{
+ font-size:9px;
+ letter-spacing:2px;
+ margin-bottom:18px;
+ color:var(--gold-light);
+}
+
+footer p,footer a{
+ font-size:11px;
+ line-height:2.1;
+ color:#c5b8a9;
+}
+
+footer a:hover{color:white}
+
+.footer-bottom{
+ border-top:1px solid #51463d;
+ margin-top:40px;
+ padding-top:20px;
+ font-size:9px;
+ letter-spacing:1.5px;
+ color:#a99c8e;
+}
+
+.page{padding:60px 0;min-height:65vh}
+.page-title{
+ font:42px var(--serif);
+ color:var(--brown);
+ margin:10px 0 30px;
+}
+
+.page-intro{
+ font-size:12px;
+ color:var(--muted);
+ margin-top:-18px;
+ margin-bottom:30px;
+}
+
+.panel{
+ background:var(--paper);
+ border:1px solid var(--line);
+ padding:27px;
+ margin-bottom:22px;
+ box-shadow:0 5px 22px rgba(61,44,30,.025);
+}
+
+.panel h3{
+ font:24px var(--serif);
+ color:var(--brown);
+ margin-bottom:20px;
+}
+
+.toolbar{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:12px;
+ flex-wrap:wrap;
+ margin-bottom:25px;
+}
+
+.search{
+ width:min(390px,100%);
+ padding:14px 16px;
+ border:1px solid var(--line);
+ background:var(--paper);
+ outline:none;
+ font-size:11px;
+}
+
+.field,select,textarea{
+ width:100%;
+ padding:13px 14px;
+ border:1px solid var(--line);
+ background:#fffefa;
+ outline:none;
+ color:var(--dark);
+ font-size:12px;
+}
+
+.field:focus,select:focus,textarea:focus,.search:focus{
+ border-color:var(--gold);
+ box-shadow:0 0 0 3px rgba(182,154,106,.10);
+}
+
+.form-grid{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:16px;
+}
+
+.form-group label{
+ display:block;
+ font-size:10px;
+ letter-spacing:.7px;
+ font-weight:700;
+ margin-bottom:8px;
+}
+
+.empty{
+ text-align:center;
+ padding:75px 20px;
+ color:var(--muted);
+}
+
+.empty h3{
+ font:27px var(--serif);
+ color:var(--brown);
+ margin-bottom:10px;
+}
+
+.empty p{font-size:12px;line-height:1.8}
+
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:700px}
+
+th,td{
+ padding:15px 13px;
+ text-align:left;
+ border-bottom:1px solid var(--line);
+ font-size:11px;
+}
+
+th{
+ background:#f4eee5;
+ color:var(--brown);
+ font-size:9px;
+ letter-spacing:1.4px;
+}
+
+.status{
+ display:inline-block;
+ padding:6px 10px;
+ background:#f2eadc;
+ color:#92733f;
+ font-size:9px;
+ letter-spacing:.5px;
+}
+
+.status.ok{background:#e6eee3;color:#54704b}
+.status.cancel{background:#f5e4e0;color:#a45145}
+
+.stats{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:14px;
+ margin:25px 0;
+}
+
+.stat{
+ padding:22px;
+ background:var(--paper);
+ border:1px solid var(--line);
+}
+
+.stat span{
+ font-size:8px;
+ letter-spacing:1.5px;
+ color:var(--muted);
+}
+
+.stat h2{
+ font:29px var(--serif);
+ color:var(--brown);
+ margin-top:10px;
+ overflow-wrap:anywhere;
+}
+
+.chart-box{
+ padding:25px;
+ background:var(--paper);
+ border:1px solid var(--line);
+ margin:20px 0 25px;
+}
+
+.chart-box h3{
+ font:24px var(--serif);
+ color:var(--brown);
+ margin-bottom:8px;
+}
+
+.chart-box p{
+ font-size:10px;
+ color:var(--muted);
+ margin-bottom:18px;
+}
+
+canvas{display:block;width:100%;height:250px}
+
+.modal{
+ position:fixed;
+ inset:0;
+ z-index:100;
+ background:rgba(30,23,19,.65);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ padding:18px;
+ backdrop-filter:blur(5px);
+}
+
+.modal-box{
+ width:min(570px,100%);
+ max-height:92vh;
+ overflow:auto;
+ background:var(--ivory);
+ padding:35px;
+ position:relative;
+ box-shadow:0 25px 90px rgba(0,0,0,.2);
+}
+
+.modal-close{
+ position:absolute;
+ right:18px;
+ top:15px;
+ border:0;
+ background:none;
+ font-size:25px;
+ color:var(--brown);
+}
+
+.modal-heading{text-align:center;margin-bottom:25px}
+.modal-heading h2{
+ font:35px var(--serif);
+ color:var(--brown);
+ margin:10px 0;
+}
+.modal-heading p{font-size:11px;color:var(--muted)}
+
+.login-roles{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:9px;
+ margin:22px 0;
+}
+
+.login-role{
+ background:var(--paper);
+ border:1px solid var(--line);
+ padding:17px 7px;
+ color:var(--brown);
+ text-align:center;
+ transition:.2s;
+}
+
+.login-role .role-icon{
+ font:23px var(--serif);
+ color:var(--gold);
+ display:block;
+ margin-bottom:8px;
+}
+
+.login-role b{font-size:9px;letter-spacing:1px}
+
+.login-role.active{
+ background:var(--brown);
+ border-color:var(--brown);
+ color:white;
+}
+
+.login-role.active .role-icon{color:var(--gold-light)}
+
+.login-hint{
+ font-size:10px;
+ color:var(--muted);
+ line-height:1.8;
+ margin-top:16px;
+ background:#f0e9df;
+ padding:12px;
+}
+
+.toast{
+ position:fixed;
+ bottom:25px;
+ right:25px;
+ z-index:200;
+ background:var(--dark);
+ color:white;
+ padding:15px 21px;
+ font-size:11px;
+ box-shadow:var(--shadow);
+ max-width:90%;
+}
+
+.mobile-nav{
+ display:none;
+ flex-direction:column;
+ gap:0;
+ padding:10px 4%;
+ background:var(--paper);
+ border-top:1px solid var(--line);
+}
+
+.mobile-nav button{
+ border:0;
+ border-bottom:1px solid var(--line);
+ background:transparent;
+ text-align:left;
+ padding:14px 5px;
+ color:var(--brown);
+ font-size:10px;
+ letter-spacing:1px;
+}
+
+@media(max-width:900px){
+ .navlinks{display:none}
+ .menu-toggle{display:block}
+ .hero{grid-template-columns:1fr}
+ .hero-content{padding:75px 8%}
+ .hero-image,.hero-image img{min-height:440px}
+ .product-grid{grid-template-columns:repeat(2,1fr)}
+ .category-grid{grid-template-columns:repeat(2,1fr)}
+ .stats{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:580px){
+ .nav{height:72px}
+ .logo{font-size:23px}
+ .logo small{font-size:7px}
+ .nav-actions{gap:5px}
+ .icon-btn{padding:9px;font-size:9px}
+ .hero h1{font-size:53px}
+ .hero-image,.hero-image img{min-height:330px}
+ .section{padding:60px 0}
+ .section-heading h2{font-size:34px}
+ .product-grid{gap:10px}
+ .product-image{height:190px}
+ .product-info{padding:12px}
+ .product-info h3{font-size:16px}
+ .product-actions{flex-direction:column}
+ .product-actions button{width:100%}
+ .features,.footer-grid,.form-grid{grid-template-columns:1fr}
+ .stats{gap:8px}
+ .stat{padding:15px}
+ .stat h2{font-size:23px}
+ .page{padding:40px 0}
+ .page-title{font-size:34px}
+ .modal-box{padding:27px 20px}
+ .login-roles{gap:5px}
+ .login-role{padding:14px 4px}
+ .login-role b{font-size:8px}
+ .toast{left:15px;right:15px;bottom:15px}
+}
+/* =================================
+   LAVÉA PREMIUM BUTTON & UI UPDATE
+================================= */
+
+button {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.primary,
+.secondary,
+.dark-btn,
+.gold-btn,
+.danger,
+.success,
+.icon-btn {
+  border-radius: 3px;
+  min-height: 43px;
+  position: relative;
+  overflow: hidden;
+  transition:
+    background .3s ease,
+    color .3s ease,
+    border-color .3s ease,
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.primary {
+  background: linear-gradient(135deg,#66503e,#3c2d24);
+  border: 1px solid #66503e;
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(65,45,30,.12);
+}
+
+.primary:hover {
+  background: linear-gradient(135deg,#3c2d24,#211a16);
+  transform: translateY(-2px);
+  box-shadow: 0 9px 22px rgba(65,45,30,.2);
+}
+
+.secondary {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--brown);
+}
+
+.secondary:hover {
+  background: var(--brown);
+  border-color: var(--brown);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.gold-btn {
+  background: linear-gradient(135deg,#c5aa78,#9e8050);
+  color: white;
+}
+
+.gold-btn:hover {
+  background: #8d7046;
+  transform: translateY(-2px);
+}
+
+.danger:hover,
+.success:hover,
+.dark-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(.9);
+}
+
+.icon-btn {
+  border-radius: 2px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 11px 16px;
+}
+
+.icon-btn:hover {
+  background: var(--brown);
+  border-color: var(--brown);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.product-card {
+  border-radius: 5px;
+  box-shadow: 0 4px 20px rgba(61,44,30,.035);
+}
+
+.product-card:hover {
+  box-shadow: 0 15px 35px rgba(61,44,30,.13);
+}
+
+.product-image {
+  background: linear-gradient(135deg,#eee6da,#d8cabb);
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.product-actions button {
+  border-radius: 2px;
+  min-height: 40px;
+}
+
+.panel,
+.chart-box,
+.stat,
+.modal-box {
+  border-radius: 4px;
+}
+
+.field,
+select,
+textarea,
+.search {
+  border-radius: 3px;
+  transition: border-color .25s, box-shadow .25s;
+}
+
+.field:focus,
+select:focus,
+textarea:focus,
+.search:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(182,154,106,.12);
+}
+
+.login-role {
+  border-radius: 3px;
+}
+
+.login-role:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.mobile-nav {
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+  padding: 15px 5%;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobile-nav button {
+  padding: 13px;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  color: var(--brown);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+
+.mobile-nav button:hover {
+  background: var(--cream);
+}
+
+@media(max-width:580px) {
+  .primary,
+  .secondary,
+  .dark-btn,
+  .gold-btn,
+  .danger,
+  .success {
+    min-height: 42px;
+    padding: 12px 15px;
+  }
+
+  .product-actions {
+    flex-direction: column;
+  }
+
+  .product-actions button {
+    width: 100%;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="topbar">
+ A LITTLE LUXURY, A LOT OF ELEGANCE · COMPLIMENTARY SHIPPING ABOVE RP 250.000
+</div>
+
+<header>
+ <div class="container nav">
+  <a href="#" class="logo" onclick="go('home');return false">
+   LAVÉA
+   <small>THE ART OF MODEST ELEGANCE</small>
+  </a>
+
+  <nav class="navlinks">
+   <button onclick="go('home')">HOME</button>
+   <button onclick="go('products')">COLLECTION</button>
+   <button onclick="go('about')">OUR STORY</button>
+   <button onclick="go('contact')">CONTACT</button>
+   <button id="staffNav" class="hidden" onclick="go('admin')">MANAGEMENT</button>
+  </nav>
+
+  <div class="nav-actions">
+   <button class="icon-btn" onclick="go('cart')">
+    BAG · <span id="cartCount">0</span>
+   </button>
+   <button class="icon-btn" id="accountBtn" onclick="accountAction()">SIGN IN</button>
+   <button class="icon-btn menu-toggle" onclick="toggleMobile()">☰</button>
+  </div>
+ </div>
+
+ <div class="mobile-nav" id="mobileNav">
+  <button onclick="go('home')">HOME</button>
+  <button onclick="go('products')">COLLECTION</button>
+  <button onclick="go('cart')">MY BAG</button>
+  <button onclick="go('orders')">MY ORDERS</button>
+  <button onclick="go('about')">OUR STORY</button>
+  <button onclick="go('contact')">CONTACT</button>
+  <button onclick="go('admin')">ADMIN DASHBOARD</button>
+  <button onclick="go('cashier')">CASHIER DASHBOARD</button>
+ </div>
+</header>
+
+<main id="app"></main>
+
+<footer>
+ <div class="container">
+  <div class="footer-grid">
+   <div>
+    <h3>LAVÉA</h3>
+    <p style="max-width:330px;margin-top:16px">
+     A celebration of simplicity, grace, and timeless femininity.
+     Temukan keanggunan dalam setiap lipatan bersama LAVÉA.
+    </p>
+   </div>
+
+   <div>
+    <h4>DISCOVER</h4>
+    <p><a href="#" onclick="go('home');return false">Home</a></p>
+    <p><a href="#" onclick="go('products');return false">Our Collection</a></p>
+    <p><a href="#" onclick="go('about');return false">Our Story</a></p>
+   </div>
+
+   <div>
+    <h4>CLIENT CARE</h4>
+    <p><a href="#" onclick="go('contact');return false">Contact Us</a></p>
+    <p><a href="#" onclick="go('orders');return false">My Orders</a></p>
+    <p><a href="#" onclick="go('profile');return false">My Account</a></p>
+   </div>
+  </div>
+
+  <div class="footer-bottom">
+   © 2026 LAVÉA BOUTIQUE. ALL RIGHTS RESERVED.
+  </div>
+ </div>
+</footer>
+
+<div id="modalRoot"></div>
+<div id="toastRoot"></div>
+
+<script>
+/* =========================================
+   LAVÉA LUXURY BOUTIQUE
+   SINGLE FILE HTML / CSS / JAVASCRIPT
+========================================= */
+
+const DB={
+ products:'lavea_lux_products',
+ users:'lavea_lux_users',
+ orders:'lavea_lux_orders',
+ cart:'lavea_lux_cart',
+ current:'lavea_lux_current'
+};
+
+const money=n=>'Rp '+Number(n||0).toLocaleString('id-ID');
+const $=id=>document.getElementById(id);
+
+function read(key,fallback){
+ try{
+  return JSON.parse(localStorage.getItem(key))??fallback;
+ }catch(e){
+  return fallback;
+ }
+}
+
+function save(key,value){
+ try{
+  localStorage.setItem(key,JSON.stringify(value));
+  return true;
+ }catch(e){
+  console.error('LAVÉA storage error:',e);
+  toast('Penyimpanan browser penuh atau tidak tersedia. Data belum tersimpan.');
+  return false;
+ }
+}
+
+function esc(value){
+ return String(value??'').replace(/[&<>"']/g,c=>({
+  '&':'&amp;',
+  '<':'&lt;',
+  '>':'&gt;',
+  '"':'&quot;',
+  "'":'&#39;'
+ })[c]);
+}
+
+let products=read(DB.products,[]);
+let users=read(DB.users,[]);
+let orders=read(DB.orders,[]);
+let cart=read(DB.cart,[]);
+let currentUser=read(DB.current,null);
+
+// Normalisasi data keranjang lama agar ID produk selalu cocok dengan ID produk.
+cart=Array.isArray(cart)?cart.map(item=>({
+ ...item,
+ productId:Number(item.productId),
+ quantity:Math.max(0,Number(item.quantity)||0)
+})).filter(item=>item.productId>0&&item.quantity>0):[];
+
+let currentPage='home';
+let selectedCategory='Semua';
+let searchTerm='';
+let loginRole='pelanggan';
+
+
+const photos = [
+ 'https://images.unsplash.com/photo-1583391733956-6c78276477e8?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1590736969955-71cc94901144?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=850&q=85',
+ // TAMBAHAN FOTO LAVÉA
+ 'https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1495385794356-15371f348c31?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1506629905607-d9a8b6b8b2f7?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1512316609839-ce289d3eba0a?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1493655161922-ef98929de9d8?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1524503033411-f1dfc6d7b2e4?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1512316609839-ce289d3eba0a?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1495385794356-15371f348c31?auto=format&fit=crop&w=850&q=85',
+ 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=850&q=85'
+];
+
+const seed = [
+ ['Voal Signature','Voal',45000,'Latte','images/01.jpg'],
+ ['Pashmina Classic','Pashmina',55000,'Mocha','images/02.jpeg'],
+ ['Voal Premium','Voal',65000,'Ivory','images/03.jpg'],
+ ['Pashmina Ceruty','Pashmina',60000,'Dusty Pink','images/04.jpg'],
+ ['Bella Square','Square',35000,'Milo','images/05.jpg'],
+ ['Paris Premium','Square',40000,'Cream','images/06.jpg'],
+ ['Voal Motif','Motif',75000,'Brown','images/07.jpg'],
+ ['Pashmina Silk','Pashmina',85000,'Champagne','images/08.jpg'],
+ ['Voal Basic','Voal',39000,'Black','images/09.jpg'],
+ ['Square Daily','Square',30000,'White','images/10.jpg'],
+ ['Pashmina Plisket','Pashmina',58000,'Sage','images/11.jpg'],
+ ['Voal Airy','Voal',52000,'Almond','images/12.jpg'],
+ ['Hijab Elegant','Square',68000,'Caramel','images/13.jpg'],
+ ['Pashmina Inner','Pashmina',49000,'Nude','images/14.jpg'],
+ ['Voal Scarf','Voal',72000,'Olive','images/15.jpg'],
+ ['Square Premium','Square',55000,'Mocca','images/16.jpg'],
+ ['Pashmina Daily','Pashmina',45000,'Grey','images/17.jpg'],
+ ['Voal Soft','Voal',62000,'Rose','images/18.jpg'],
+ ['Hijab Classic','Square',48000,'Taupe','images/19.jpg'],
+ ['Pashmina Luxe','Pashmina',95000,'Brown','images/20.jpg'],
+ ['Voal Silk Touch','Voal',79000,'Ivory','images/21.jpg'],
+ ['Square Minimal','Square',42000,'Sand','images/22.jpg'],
+ ['Pashmina Shawl','Pashmina',67000,'Mauve','images/23.jpg'],
+ ['Voal Everyday','Voal',38000,'Black','images/24.jpg'],
+ ['Hijab Premium','Square',88000,'Latte','images/25.jpg'],
+ ['Pashmina Soft','Pashmina',57000,'Cream','images/26.jpg'],
+ ['Voal Daily','Voal',44000,'Milo','images/27.jpg'],
+ ['Square Basic','Square',32000,'White','images/28.jpg'],
+ ['Pashmina Flow','Pashmina',73000,'Sage','images/29.jpg'],
+ ['Voal Signature Plus','Voal',89000,'Mocha','images/30.jpg'],
+ ['Hijab Motif','Motif',82000,'Floral','images/31.jpg'],
+ ['Pashmina Premium','Pashmina',92000,'Dusty','images/32.jpg'],
+ ['Square Cotton','Square',49000,'Beige','images/33.jpg'],
+ ['Voal Cotton','Voal',59000,'Brown','images/34.jpg'],
+ ['Pashmina Chiffon','Pashmina',63000,'Nude','images/35.jpg'],
+ ['Hijab Daily','Square',35000,'Grey','images/36.jpg'],
+ ['Voal Luxury','Voal',105000,'Champagne','images/37.jpg'],
+ ['Square Silk','Square',78000,'Olive','images/38.jpg'],
+ ['Pashmina Airy','Pashmina',54000,'Caramel','images/39.jpg'],
+ ['Voal Modern','Voal',69000,'Taupe','images/40.jpg'],
+ ['Hijab Soft Touch','Square',46000,'Milo','images/41.jpg'],
+ ['Pashmina Elegant','Pashmina',86000,'Rose','images/42.jpg'],
+ ['Voal Motif Premium','Motif',99000,'Floral','images/43.jpg'],
+ ['Square Premium Plus','Square',72000,'Latte','images/44.jpg'],
+ ['Pashmina Basic','Pashmina',39000,'Black','images/45.jpg'],
+ ['Voal Everyday Plus','Voal',58000,'Cream','images/46.jpg'],
+ ['Hijab Signature','Square',92000,'Mocha','images/47.jpg'],
+ ['Pashmina Silk Premium','Pashmina',115000,'Champagne','images/48.jpg'],
+ ['Voal Natural','Voal',67000,'Sage','images/49.jpg'],
+ ['LAVÉA Exclusive','Exclusive',135000,'Brown','images/50.jpg']
+];
+
+/* IMAGE FALLBACK */
+function fallbackImage(img){
+ img.onerror = null;
+
+ const svg = `
+ <svg xmlns="http://www.w3.org/2000/svg" width="700" height="850" viewBox="0 0 700 850">
+  <rect width="700" height="850" fill="#eee7dc"/>
+  <circle cx="350" cy="300" r="130" fill="#d9c6a0" opacity=".45"/>
+  <path d="M190 600 Q350 350 510 600 L570 850 L130 850Z" fill="#b69a6a" opacity=".55"/>
+  <text x="350" y="710" text-anchor="middle" font-family="Georgia" font-size="52" fill="#594638">LAVÉA</text>
+  <text x="350" y="755" text-anchor="middle" font-family="Arial" font-size="17" letter-spacing="5" fill="#94877b">MODEST ELEGANCE</text>
+ </svg>`;
+
+ img.src = 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
+}
+
+function productImage(url){
+ return url || 'images/01.jpg';
+}
+
+/* INISIALISASI PRODUK */
+/* INISIALISASI PRODUK */
+if(!products.length){
+ products = seed.map((p,i)=>({
+  id:i+1,
+  name:p[0],
+  category:p[1],
+  price:p[2],
+  color:p[3],
+  image:photos[i % photos.length],
+  stock:20,
+  description:'Koleksi hijab LAVÉA menggunakan bahan pilihan dengan sentuhan elegan, ringan, dan nyaman untuk menemani aktivitas sehari-hari.',
+  active:true,
+  createdAt:Date.now()
+ }));
+
+ save(DB.products,products);
+}
+
+/* PERBAIKAN FOTO PRODUK LAMA */
+let photoUpdated = false;
+
+products = products.map((p,i)=>{
+ if(!p.image || p.image.startsWith('images/')){
+  photoUpdated = true;
+
+  return {
+   ...p,
+   image:photos[i % photos.length]
+  };
+ }
+
+ return p;
+});
+
+if(photoUpdated){
+ save(DB.products,products);
+}
+
+/* PASTIKAN FOTO DEFAULT TERSEDIA */
+function productImage(url){
+ return url || photos[0];
+}
+
+
+/* DEMO STAFF ACCOUNT */
+if(!users.some(u=>u.role==='admin')){
+ users.push({
+  name:'Administrator LAVÉA',
+  email:'admin',
+  password:'admin123',
+  role:'admin'
+ });
+}
+
+if(!users.some(u=>u.role==='kasir')){
+ users.push({
+  name:'Cashier LAVÉA',
+  email:'kasir',
+  password:'kasir123',
+  role:'kasir'
+ });
+}
+
+function persist(){
+ save(DB.products,products);
+ save(DB.users,users);
+ save(DB.orders,orders);
+ save(DB.cart,cart);
+ save(DB.current,currentUser);
+}
+
+function role(){
+ return String(currentUser?.role||'').toLowerCase();
+}
+
+function isStaff(){
+ return ['admin','kasir'].includes(role());
+}
+
+function dateText(t){
+ return new Date(t||Date.now()).toLocaleDateString('id-ID',{
+  day:'2-digit',
+  month:'long',
+  year:'numeric'
+ });
+}
+
+function toast(message){
+ $('toastRoot').innerHTML=`<div class="toast">${esc(message)}</div>`;
+ clearTimeout(window.toastTimer);
+ window.toastTimer=setTimeout(()=>{
+  $('toastRoot').innerHTML='';
+ },2800);
+}
+
+function go(page){
+ currentPage=page;
+ $('mobileNav').style.display='none';
+ render();
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function toggleMobile(){
+ const el=$('mobileNav');
+ el.style.display=el.style.display==='flex'?'none':'flex';
+}
+
+function accountAction(){
+ currentUser?go('profile'):openLogin();
+}
+
+function updateHeader(){
+ $('cartCount').textContent=cart.reduce((s,x)=>s+Number(x.quantity||0),0);
+
+ $('accountBtn').textContent=currentUser
+  ?'MY ACCOUNT'
+  :'SIGN IN';
+
+ const staffButton=$('staffNav');
+ staffButton.classList.toggle('hidden',!isStaff());
+ staffButton.textContent=role()==='kasir'?'CASHIER':'MANAGEMENT';
+ staffButton.onclick=()=>go(role()==='kasir'?'cashier':'admin');
+
+ const mobileAdmin=$('mobileStaffAdmin');
+ const mobileCashier=$('mobileStaffCashier');
+ if(mobileAdmin)mobileAdmin.classList.toggle('hidden',role()!=='admin');
+ if(mobileCashier)mobileCashier.classList.toggle('hidden',!['admin','kasir'].includes(role()));
+}
+
+/* HOMEPAGE */
+function homePage(){
+ const featured=products.filter(p=>p.active&&p.stock>0).slice(0,8);
+
+ return `
+ <section class="hero">
+  <div class="hero-content">
+   <span class="eyebrow">THE NEW COLLECTION · 2026</span>
+   <h1>Elegance<br>in Every Fold.</h1>
+   <p>
+    Temukan koleksi hijab yang memadukan keindahan,
+    kenyamanan, dan kesederhanaan dalam setiap detail.
+   </p>
+   <div class="hero-buttons">
+    <button class="primary" onclick="go('products')">EXPLORE COLLECTION</button>
+    <button class="secondary" onclick="go('about')">OUR STORY</button>
+   </div>
+  </div>
+
+  <div class="hero-image">
+   <img
+    src="https://images.unsplash.com/photo-1619545307432-9fc73f8135ff?auto=format&fit=crop&w=1200&q=85"
+    alt="LAVÉA collection"
+    onerror="fallbackImage(this)"
+   >
+   <div class="hero-note">
+    <span>Timeless Beauty</span>
+    <small>MADE FOR EVERY MOMENT</small>
+   </div>
+  </div>
+ </section>
+
+ <section class="section container">
+  <div class="section-heading">
+   <span class="eyebrow">FIND YOUR SIGNATURE STYLE</span>
+   <h2>Explore Our Collection</h2>
+   <p>Pilih koleksi yang paling sesuai dengan gaya dan aktivitasmu.</p>
+  </div>
+
+  <div class="category-grid">
+   <div class="category-card" onclick="filterCategory('Voal')">
+    <div class="symbol">01</div>
+    <h3>Voal</h3>
+    <p>LIGHT & COMFORTABLE</p>
+   </div>
+   <div class="category-card" onclick="filterCategory('Pashmina')">
+    <div class="symbol">02</div>
+    <h3>Pashmina</h3>
+    <p>EFFORTLESSLY ELEGANT</p>
+   </div>
+   <div class="category-card" onclick="filterCategory('Square')">
+    <div class="symbol">03</div>
+    <h3>Square</h3>
+    <p>CLASSIC & TIMELESS</p>
+   </div>
+   <div class="category-card" onclick="filterCategory('Motif')">
+    <div class="symbol">04</div>
+    <h3>Motif</h3>
+    <p>BEAUTIFUL DETAILS</p>
+   </div>
+  </div>
+ </section>
+
+ <section class="section soft-section">
+  <div class="container">
+   <div class="section-heading">
+    <span class="eyebrow">CURATED FOR YOU</span>
+    <h2>Featured Pieces</h2>
+    <p>Temukan pilihan favorit dari koleksi LAVÉA.</p>
+   </div>
+   <div class="product-grid">
+    ${featured.map(productCard).join('')}
+   </div>
+   <div style="text-align:center;margin-top:35px">
+    <button class="secondary" onclick="go('products')">VIEW ALL COLLECTION</button>
+   </div>
+  </div>
+ </section>
+
+ <section class="promo-strip">
+  <span class="eyebrow">THE LAVÉA EXPERIENCE</span>
+  <h2>Beauty in Simplicity</h2>
+  <p>DISCOVER YOUR EVERYDAY ELEGANCE WITH LAVÉA</p>
+ </section>
+
+ <section class="section container">
+  <div class="section-heading">
+   <span class="eyebrow">WHY LAVÉA</span>
+   <h2>A Thoughtful Experience</h2>
+  </div>
+
+  <div class="features">
+   <div class="feature">
+    <div class="symbol">✧</div>
+    <h3>Selected Materials</h3>
+    <p>Bahan pilihan yang nyaman untuk menemani berbagai aktivitas.</p>
+   </div>
+   <div class="feature">
+    <div class="symbol">◇</div>
+    <h3>Timeless Design</h3>
+    <p>Desain sederhana yang mudah dipadukan dengan berbagai gaya.</p>
+   </div>
+   <div class="feature">
+    <div class="symbol">♡</div>
+    <h3>Personal Service</h3>
+    <p>Pengalaman berbelanja yang praktis dan mudah digunakan.</p>
+   </div>
+  </div>
+ </section>`;
+}
+
+/* PRODUCT CARD */
+function productCard(p){
+ return `
+ <article class="product-card">
+  <div class="product-image">
+   <img
+    src="${esc(productImage(p.image))}"
+    alt="${esc(p.name)}"
+    loading="lazy"
+    onerror="fallbackImage(this)"
+   >
+   <span class="product-tag">${p.stock>0?'AVAILABLE':'SOLD OUT'}</span>
+  </div>
+
+  <div class="product-info">
+   <span class="product-category">${esc(p.category)}</span>
+   <h3>${esc(p.name)}</h3>
+   <div class="product-price">${money(p.price)}</div>
+   <div class="product-meta">Color: ${esc(p.color||'-')} · Stock: ${p.stock}</div>
+
+   <div class="product-actions">
+    <button class="secondary" onclick="viewProduct(${p.id})">DETAIL</button>
+    <button class="primary" onclick="addToCart(${p.id})" ${p.stock<=0?'disabled':''}>
+     ADD TO BAG
+    </button>
+   </div>
+  </div>
+ </article>`;
+}
+
+/* PRODUCT LIST */
+function filterCategory(category){
+ selectedCategory=category;
+ searchTerm='';
+ go('products');
+}
+
+function productsPage(){
+ const categories=['Semua','Voal','Pashmina','Square','Motif','Exclusive'];
+
+ const list=products.filter(p=>{
+  const categoryMatch=selectedCategory==='Semua'||p.category===selectedCategory;
+  const searchMatch=(p.name+' '+p.category+' '+p.color)
+   .toLowerCase().includes(searchTerm.toLowerCase());
+
+  return p.active&&categoryMatch&&searchMatch;
+ });
+
+ return `
+ <section class="page container">
+  <span class="eyebrow">THE LAVÉA COLLECTION</span>
+  <h1 class="page-title">Our Collection</h1>
+  <p class="page-intro">Discover pieces made for your everyday elegance.</p>
+
+  <div class="toolbar">
+   <input
+    class="search"
+    id="productSearch"
+    placeholder="Search your favorite hijab..."
+    value="${esc(searchTerm)}"
+    oninput="searchProducts(this.value)"
+   >
+
+   <select style="width:auto;min-width:170px" onchange="changeCategory(this.value)">
+    ${categories.map(c=>`
+     <option value="${c}" ${selectedCategory===c?'selected':''}>${c}</option>
+    `).join('')}
+   </select>
+  </div>
+
+  ${list.length
+   ?`<div class="product-grid">${list.map(productCard).join('')}</div>`
+   :`<div class="empty"><h3>No products found</h3><p>Coba kata kunci atau kategori lainnya.</p></div>`
+  }
+ </section>`;
+}
+
+function searchProducts(value){
+ searchTerm=value;
+ const input=$('productSearch');
+ const position=input.selectionStart;
+ render();
+ const newInput=$('productSearch');
+ newInput.focus();
+ newInput.setSelectionRange(position,position);
+}
+
+function changeCategory(value){
+ selectedCategory=value;
+ render();
+}
+
+/* PRODUCT DETAIL */
+function viewProduct(id){
+ const p=products.find(x=>x.id===id);
+ if(!p)return;
+
+ $('modalRoot').innerHTML=`
+ <div class="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+   <button class="modal-close" onclick="closeModal()">×</button>
+
+   <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px">
+    <div style="background:#eee7dc;min-height:250px">
+     <img
+      src="${esc(productImage(p.image))}"
+      alt="${esc(p.name)}"
+      style="width:100%;height:100%;object-fit:cover"
+      onerror="fallbackImage(this)"
+     >
+    </div>
+
+    <div>
+     <span class="eyebrow">${esc(p.category)}</span>
+     <h2 style="font:30px var(--serif);color:var(--brown);margin:12px 0">
+      ${esc(p.name)}
+     </h2>
+     <h3 style="font:20px var(--sans);margin-bottom:15px">${money(p.price)}</h3>
+     <p style="font-size:11px;line-height:2;color:var(--muted)">
+      ${esc(p.description||'Koleksi hijab LAVÉA.')}
+     </p>
+     <p style="font-size:11px;margin-top:15px">Color: ${esc(p.color||'-')}</p>
+     <p style="font-size:11px;margin:8px 0 20px">Available stock: ${p.stock}</p>
+     <button class="primary" style="width:100%" onclick="addToCart(${p.id});closeModal()" ${p.stock<=0?'disabled':''}>
+      ADD TO BAG
+     </button>
+    </div>
+   </div>
+  </div>
+ </div>`;
+}
+
+/* CART */
+function addToCart(id){
+ const p=products.find(x=>x.id===id);
+ if(!p||p.active===false||Number(p.stock)<=0)return toast('Produk tidak tersedia atau stok sedang habis.');
+
+ const existing=cart.find(x=>Number(x.productId)===Number(id));
+
+ if(existing){
+  if(existing.quantity>=p.stock)return toast('Jumlah melebihi stok tersedia.');
+  existing.quantity++;
+ }else{
+  cart.push({productId:id,quantity:1});
+ }
+
+ persist();
+ updateHeader();
+ toast('Produk berhasil ditambahkan ke bag.');
+}
+
+function updateQuantity(id,change){
+ const item=cart.find(x=>Number(x.productId)===Number(id));
+ const p=products.find(x=>Number(x.id)===Number(id));
+ if(!item||!p)return;
+
+ item.quantity=Number(item.quantity||0)+Number(change);
+
+ if(item.quantity<=0||Number(p.stock)<=0){
+  cart=cart.filter(x=>Number(x.productId)!==Number(id));
+ }else if(item.quantity>Number(p.stock)){
+  item.quantity=Number(p.stock);
+  toast('Jumlah sudah mencapai batas stok.');
+ }
+
+ persist();
+ render();
+}
+
+function removeCart(id){
+ cart=cart.filter(x=>Number(x.productId)!==Number(id));
+ persist();
+ render();
+ toast('Produk dihapus dari bag.');
+}
+
+function cartPage(){
+ const validCart=cart.filter(x=>products.some(p=>Number(p.id)===Number(x.productId))&&Number(x.quantity)>0);
+ if(validCart.length!==cart.length){
+  cart=validCart;
+  persist();
+ }
+
+ if(!validCart.length){
+  return `
+  <section class="page container">
+   <div class="empty">
+    <h3>Your Bag is Empty</h3>
+    <p>Belum ada koleksi yang kamu pilih.</p>
+    <button class="primary" style="margin-top:20px" onclick="go('products')">
+     DISCOVER COLLECTION
+    </button>
+   </div>
+  </section>`;
+ }
+
+ const subtotal=validCart.reduce((s,x)=>{
+  const p=products.find(y=>y.id===x.productId);
+  return s+p.price*x.quantity;
+ },0);
+
+ return `
+ <section class="page container">
+  <span class="eyebrow">YOUR SELECTED PIECES</span>
+  <h1 class="page-title">Shopping Bag</h1>
+
+  <div class="panel">
+   ${validCart.map(x=>{
+    const p=products.find(y=>y.id===x.productId);
+    return `
+    <div style="display:grid;grid-template-columns:85px 1fr auto;gap:18px;align-items:center;padding:15px 0;border-bottom:1px solid var(--line)">
+     <img
+      src="${esc(productImage(p.image))}"
+      alt="${esc(p.name)}"
+      style="width:85px;height:100px;object-fit:cover"
+      onerror="fallbackImage(this)"
+     >
+
+     <div>
+      <span class="product-category">${esc(p.category)}</span>
+      <h3 style="font:20px var(--serif);color:var(--brown);margin:7px 0">${esc(p.name)}</h3>
+      <p style="font-size:11px;color:var(--muted)">${money(p.price)}</p>
+
+      <div style="display:flex;align-items:center;gap:12px;margin-top:12px">
+       <button class="secondary" onclick="updateQuantity(${p.id},-1)">−</button>
+       <b>${x.quantity}</b>
+       <button class="secondary" onclick="updateQuantity(${p.id},1)">+</button>
+       <button class="danger" onclick="removeCart(${p.id})">REMOVE</button>
+      </div>
+     </div>
+
+     <b>${money(p.price*x.quantity)}</b>
+    </div>`;
+   }).join('')}
+
+   <div style="display:flex;justify-content:space-between;align-items:center;margin-top:25px;gap:15px;flex-wrap:wrap">
+    <div>
+     <small style="color:var(--muted)">SUBTOTAL</small>
+     <h2 style="font:27px var(--serif);color:var(--brown);margin-top:5px">${money(subtotal)}</h2>
+    </div>
+    <button class="primary" onclick="go('checkout')">PROCEED TO CHECKOUT</button>
+   </div>
+  </div>
+ </section>`;
+}
+
+/* LOGIN */
+function openLogin(){
+ loginRole='pelanggan';
+
+ $('modalRoot').innerHTML=`
+ <div class="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+   <button class="modal-close" onclick="closeModal()">×</button>
+
+   <div class="modal-heading">
+    <span class="eyebrow">WELCOME TO LAVÉA</span>
+    <h2>Welcome Back</h2>
+    <p>Silakan pilih akses akun untuk melanjutkan.</p>
+   </div>
+
+   <div class="login-roles">
+    <button class="login-role" data-role="admin" onclick="selectLoginRole('admin')">
+     <span class="role-icon">♛</span>
+     <b>ADMIN</b>
+    </button>
+
+    <button class="login-role" data-role="kasir" onclick="selectLoginRole('kasir')">
+     <span class="role-icon">◇</span>
+     <b>KASIR</b>
+    </button>
+
+    <button class="login-role active" data-role="pelanggan" onclick="selectLoginRole('pelanggan')">
+     <span class="role-icon">♡</span>
+     <b>PELANGGAN</b>
+    </button>
+   </div>
+
+   <form onsubmit="login(event)">
+    <div class="form-group">
+     <label id="loginIdentityLabel">EMAIL</label>
+     <input class="field" id="loginIdentity" required placeholder="Masukkan email">
+    </div>
+
+    <div class="form-group" style="margin-top:15px">
+     <label>PASSWORD</label>
+     <input class="field" id="loginPassword" type="password" required placeholder="Masukkan password">
+    </div>
+
+    <button class="primary" style="width:100%;margin-top:22px">SIGN IN</button>
+   </form>
+
+   <div class="login-hint" id="loginHint">
+    Belum punya akun pelanggan?
+    <a href="#" onclick="openRegister();return false" style="color:var(--brown);font-weight:700">Buat akun di sini.</a>
+   </div>
+  </div>
+ </div>`;
+
+ selectLoginRole('pelanggan');
+}
+
+function selectLoginRole(roleName){
+ loginRole=roleName;
+
+ document.querySelectorAll('.login-role').forEach(button=>{
+  button.classList.toggle('active',button.dataset.role===roleName);
+ });
+
+ const label=$('loginIdentityLabel');
+ const identity=$('loginIdentity');
+ const hint=$('loginHint');
+
+ if(roleName==='admin'){
+  label.textContent='ADMIN USERNAME';
+  identity.placeholder='Masukkan username admin';
+  hint.innerHTML='Akses khusus administrator LAVÉA.';
+ }else if(roleName==='kasir'){
+  label.textContent='CASHIER USERNAME';
+  identity.placeholder='Masukkan username kasir';
+  hint.innerHTML='Akses khusus kasir LAVÉA.';
+ }else{
+  label.textContent='EMAIL';
+  identity.placeholder='Masukkan email';
+  hint.innerHTML=`
+   Belum punya akun pelanggan?
+   <a href="#" onclick="openRegister();return false" style="color:var(--brown);font-weight:700">
+    Buat akun di sini.
+   </a>`;
+ }
+}
+
+function login(e){
+ e.preventDefault();
+
+ const identity=$('loginIdentity').value.trim().toLowerCase();
+ const password=$('loginPassword').value;
+
+ const user=users.find(u=>
+  String(u.email).toLowerCase()===identity&&
+  u.password===password&&
+  u.role===loginRole
+ );
+
+ if(!user){
+  return toast('Akun atau password tidak sesuai dengan akses yang dipilih.');
+ }
+
+ currentUser={
+  name:user.name,
+  email:user.email,
+  role:user.role,
+  phone:user.phone||'',
+  address:user.address||''
+ };
+
+ persist();
+ closeModal();
+
+ if(user.role==='admin'){
+  go('admin');
+ }else if(user.role==='kasir'){
+  go('cashier');
+ }else{
+  go('home');
+ }
+
+ toast('Selamat datang, '+user.name+'.');
+}
+
+/* REGISTER */
+function openRegister(){
+ $('modalRoot').innerHTML=`
+ <div class="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+   <button class="modal-close" onclick="closeModal()">×</button>
+
+   <div class="modal-heading">
+    <span class="eyebrow">JOIN THE LAVÉA EXPERIENCE</span>
+    <h2>Create Account</h2>
+    <p>Buat akun pelanggan untuk mulai berbelanja.</p>
+   </div>
+
+   <form onsubmit="registerCustomer(event)">
+    <div class="form-group">
+     <label>FULL NAME</label>
+     <input class="field" id="regName" required>
+    </div>
+
+    <div class="form-group" style="margin-top:14px">
+     <label>EMAIL ADDRESS</label>
+     <input class="field" id="regEmail" type="email" required>
+    </div>
+
+    <div class="form-group" style="margin-top:14px">
+     <label>PASSWORD</label>
+     <input class="field" id="regPassword" type="password" minlength="4" required>
+    </div>
+
+    <button class="primary" style="width:100%;margin-top:22px">CREATE ACCOUNT</button>
+   </form>
+
+   <p style="text-align:center;font-size:11px;margin-top:18px;color:var(--muted)">
+    Sudah punya akun?
+    <a href="#" onclick="openLogin();return false" style="color:var(--brown);font-weight:700">Sign in</a>
+   </p>
+  </div>
+ </div>`;
+}
+
+function registerCustomer(e){
+ e.preventDefault();
+
+ const name=$('regName').value.trim();
+ const email=$('regEmail').value.trim().toLowerCase();
+ const password=$('regPassword').value;
+
+ if(users.some(u=>String(u.email).toLowerCase()===email)){
+  return toast('Email sudah terdaftar.');
+ }
+
+ const user={
+  name,
+  email,
+  password,
+  role:'pelanggan',
+  phone:'',
+  address:''
+ };
+
+ users.push(user);
+
+ currentUser={
+  name:user.name,
+  email:user.email,
+  role:'pelanggan',
+  phone:'',
+  address:''
+ };
+
+ persist();
+ closeModal();
+ go('home');
+ toast('Akun berhasil dibuat. Selamat datang di LAVÉA!');
+}
+
+function logout(){
+ currentUser=null;
+ persist();
+ go('home');
+ toast('Kamu berhasil keluar.');
+}
+
+function logoutAndLogin(){
+ currentUser=null;
+ persist();
+ openLogin();
+}
+
+function closeModal(){
+ $('modalRoot').innerHTML='';
+}
+
+/* CHECKOUT */
+function checkoutPage(){
+ if(!currentUser||role()!=='pelanggan'){
+  return `
+  <section class="page container">
+   <div class="empty">
+    <h3>Customer access required</h3>
+    <p>Checkout hanya dapat dilakukan melalui akun pelanggan. Silakan masuk atau buat akun pelanggan terlebih dahulu.</p>
+    <button class="primary" style="margin-top:20px" onclick="logoutAndLogin()">CUSTOMER SIGN IN</button>
+   </div>
+  </section>`;
+ }
+
+ if(!cart.length){
+  return `
+  <section class="page container">
+   <div class="empty">
+    <h3>Your Bag is Empty</h3>
+    <button class="primary" onclick="go('products')">SHOP NOW</button>
+   </div>
+  </section>`;
+ }
+
+ const validItems=cart.filter(x=>{
+  const p=products.find(y=>Number(y.id)===Number(x.productId));
+  return p&&p.active!==false&&Number(p.stock)>=Number(x.quantity)&&Number(x.quantity)>0;
+ });
+ if(validItems.length!==cart.length){
+  cart=validItems;
+  persist();
+ }
+ if(!cart.length){
+  return `
+  <section class="page container">
+   <div class="empty">
+    <h3>Your Bag is Empty</h3>
+    <p>Produk di keranjang sudah tidak tersedia atau stoknya berubah.</p>
+    <button class="primary" onclick="go('products')">SHOP NOW</button>
+   </div>
+  </section>`;
+ }
+
+ const subtotal=cart.reduce((s,x)=>{
+  const p=products.find(y=>Number(y.id)===Number(x.productId));
+  return s+(p?p.price*x.quantity:0);
+ },0);
+
+ const shipping=subtotal>=250000?0:15000;
+
+ return `
+ <section class="page container">
+  <span class="eyebrow">ALMOST YOURS</span>
+  <h1 class="page-title">Checkout</h1>
+
+  <div style="display:grid;grid-template-columns:1.2fr .8fr;gap:22px">
+   <div class="panel">
+    <h3>Shipping Information</h3>
+
+    <form onsubmit="placeOrder(event)">
+     <div class="form-group">
+      <label>FULL NAME</label>
+      <input class="field" id="shipName" value="${esc(currentUser.name)}" required>
+     </div>
+
+     <div class="form-group" style="margin-top:15px">
+      <label>WHATSAPP NUMBER</label>
+      <input class="field" id="shipPhone" value="${esc(currentUser.phone||'')}" required placeholder="08xxxxxxxxxx">
+     </div>
+
+     <div class="form-group" style="margin-top:15px">
+      <label>DELIVERY ADDRESS</label>
+      <textarea class="field" id="shipAddress" rows="3" required>${esc(currentUser.address||'')}</textarea>
+     </div>
+
+     <div class="form-group" style="margin-top:15px">
+      <label>ORDER NOTE</label>
+      <textarea class="field" id="shipNote" rows="2" placeholder="Catatan tambahan (opsional)"></textarea>
+     </div>
+
+     <div class="form-group" style="margin-top:15px">
+      <label>PAYMENT METHOD</label>
+      <select id="paymentMethod">
+       <option>Transfer Bank</option>
+       <option>QRIS / E-Wallet</option>
+       <option>COD</option>
+      </select>
+     </div>
+
+     <button class="primary" style="width:100%;margin-top:24px">PLACE MY ORDER</button>
+    </form>
+   </div>
+
+   <div class="panel">
+    <h3>Order Summary</h3>
+
+    ${cart.map(x=>{
+     const p=products.find(y=>y.id===x.productId);
+     return p?`
+      <div style="display:flex;justify-content:space-between;gap:10px;margin:15px 0;font-size:11px">
+       <span>${esc(p.name)} × ${x.quantity}</span>
+       <b>${money(p.price*x.quantity)}</b>
+      </div>`:'';
+    }).join('')}
+
+    <hr style="border:0;border-top:1px solid var(--line);margin:20px 0">
+
+    <div style="display:flex;justify-content:space-between;margin:12px 0;font-size:12px">
+     <span>Subtotal</span><b>${money(subtotal)}</b>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin:12px 0;font-size:12px">
+     <span>Shipping</span><b>${shipping?money(shipping):'FREE'}</b>
+    </div>
+
+    <hr style="border:0;border-top:1px solid var(--line);margin:20px 0">
+
+    <div style="display:flex;justify-content:space-between;font-size:17px">
+     <b>Total</b><b>${money(subtotal+shipping)}</b>
+    </div>
+   </div>
+  </div>
+ </section>`;
+}
+
+function placeOrder(e){
+ e.preventDefault();
+
+ if(!currentUser||role()!=='pelanggan'){
+  toast('Silakan gunakan akun pelanggan untuk checkout.');
+  return;
+ }
+
+ const name=$('shipName').value.trim();
+ const phone=$('shipPhone').value.trim();
+ const address=$('shipAddress').value.trim();
+ const note=$('shipNote').value.trim();
+ const payment=$('paymentMethod').value;
+
+ if(!name||!phone||!address){
+  return toast('Lengkapi data pengiriman.');
+ }
+
+ for(const x of cart){
+  const p=products.find(y=>y.id===x.productId);
+  if(!p||p.stock<x.quantity){
+   return toast('Stok produk tidak mencukupi.');
+  }
+ }
+
+ const subtotal=cart.reduce((s,x)=>{
+  const p=products.find(y=>y.id===x.productId);
+  return s+p.price*x.quantity;
+ },0);
+
+ const shipping=subtotal>=250000?0:15000;
+
+ const order={
+  id:'LAV-'+Date.now().toString().slice(-9),
+  timestamp:Date.now(),
+  customerId:currentUser.email,
+  customer:name,
+  phone,
+  address,
+  note,
+  payment,
+  items:cart.map(x=>{
+   const p=products.find(y=>y.id===x.productId);
+   return{
+    productId:p.id,
+    name:p.name,
+    price:p.price,
+    quantity:x.quantity
+   };
+  }),
+  subtotal,
+  shipping,
+  total:subtotal+shipping,
+  paid:'Belum Dibayar',
+  status:'Menunggu Konfirmasi'
+ };
+
+ cart.forEach(x=>{
+  const p=products.find(y=>y.id===x.productId);
+  p.stock-=x.quantity;
+ });
+
+ orders.unshift(order);
+ cart=[];
+
+ currentUser.phone=phone;
+ currentUser.address=address;
+
+ persist();
+ updateHeader();
+ toast('Pesanan berhasil dibuat.');
+ go('orders');
+}
+
+/* CUSTOMER ORDERS */
+function ordersPage(){
+ if(!currentUser){
+  return `
+  <section class="page container">
+   <div class="empty">
+    <h3>Sign in to view your orders</h3>
+    <button class="primary" onclick="openLogin()">SIGN IN</button>
+   </div>
+  </section>`;
+ }
+
+ const mine=orders.filter(o=>o.customerId===currentUser.email);
+
+ return `
+ <section class="page container">
+  <span class="eyebrow">YOUR LAVÉA JOURNEY</span>
+  <h1 class="page-title">My Orders</h1>
+
+  ${mine.length?mine.map(o=>`
+   <div class="panel">
+    <div style="display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap">
+     <div>
+      <b style="color:var(--brown)">${esc(o.id)}</b>
+      <p style="font-size:10px;color:var(--muted);margin-top:7px">${dateText(o.timestamp)}</p>
+     </div>
+
+     <span class="status ${o.status==='Selesai'?'ok':o.status==='Dibatalkan'?'cancel':''}">
+      ${esc(o.status)}
+     </span>
+    </div>
+
+    <div style="margin:20px 0">
+     ${o.items.map(i=>`
+      <div style="display:flex;justify-content:space-between;font-size:11px;margin:9px 0">
+       <span>${esc(i.name)} × ${i.quantity}</span>
+       <b>${money(i.price*i.quantity)}</b>
+      </div>
+     `).join('')}
+    </div>
+
+    <hr style="border:0;border-top:1px solid var(--line);margin:16px 0">
+
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+     <div>
+      <small style="color:var(--muted)">TOTAL PAYMENT</small>
+      <h3 style="margin:5px 0">${money(o.total)}</h3>
+      <small>${esc(o.payment)} · ${esc(o.paid)}</small>
+     </div>
+
+     <button class="secondary" onclick="printReceipt('${o.id}')">PRINT RECEIPT</button>
+    </div>
+   </div>
+  `).join(''):`
+   <div class="empty">
+    <h3>No orders yet</h3>
+    <p>Koleksi favoritmu mungkin sedang menunggu.</p>
+    <button class="primary" style="margin-top:18px" onclick="go('products')">DISCOVER COLLECTION</button>
+   </div>
+  `}
+ </section>`;
+}
+
+/* RECEIPT */
+function printReceipt(id){
+ const o=orders.find(x=>x.id===id);
+ if(!o)return toast('Pesanan tidak ditemukan.');
+ if(!isStaff()&&(!currentUser||o.customerId!==currentUser.email)){
+  return toast('Kamu tidak memiliki akses ke struk pesanan ini.');
+ }
+
+ const w=window.open('','_blank','width=600,height=750');
+ if(!w)return toast('Izinkan pop-up untuk mencetak struk.');
+
+ w.document.write(`
+ <!DOCTYPE html>
+ <html>
+ <head>
+  <title>Receipt ${esc(o.id)}</title>
+  <style>
+   body{font-family:Arial;padding:28px;color:#30241e}
+   .receipt{max-width:390px;margin:auto}
+   h1{text-align:center;letter-spacing:7px;font-family:Georgia;font-weight:400}
+   p{font-size:11px;line-height:1.8}
+   hr{border:0;border-top:1px dashed #aaa;margin:17px 0}
+   table{width:100%;font-size:11px;border-collapse:collapse}
+   td{padding:7px 0}
+   .right{text-align:right}
+   .center{text-align:center}
+   .total{font-weight:bold;font-size:15px}
+   button{padding:10px 20px;border:0;background:#594638;color:white;cursor:pointer}
+   @media print{button{display:none}}
+  </style>
+ </head>
+ <body>
+  <div class="receipt">
+   <h1>LAVÉA</h1>
+   <p class="center">THE ART OF MODEST ELEGANCE</p>
+   <hr>
+
+   <p>
+    Invoice: ${esc(o.id)}<br>
+    Date: ${dateText(o.timestamp)}<br>
+    Customer: ${esc(o.customer)}<br>
+    WhatsApp: ${esc(o.phone)}<br>
+    Address: ${esc(o.address)}
+   </p>
+
+   <hr>
+
+   <table>
+    ${o.items.map(i=>`
+     <tr>
+      <td>${esc(i.name)} × ${i.quantity}</td>
+      <td class="right">${money(i.price*i.quantity)}</td>
+     </tr>
+    `).join('')}
+   </table>
+
+   <hr>
+
+   <table>
+    <tr><td>Subtotal</td><td class="right">${money(o.subtotal)}</td></tr>
+    <tr><td>Shipping</td><td class="right">${money(o.shipping)}</td></tr>
+    <tr class="total"><td>TOTAL</td><td class="right">${money(o.total)}</td></tr>
+   </table>
+
+   <hr>
+
+   <p>
+    Payment: ${esc(o.payment)}<br>
+    Payment status: ${esc(o.paid)}<br>
+    Order status: ${esc(o.status)}
+   </p>
+
+   <hr>
+   <p class="center">
+    Thank you for choosing LAVÉA.<br>
+    Elegance in Every Fold.
+   </p>
+
+   <p class="center">
+    <button onclick="window.print()">PRINT RECEIPT</button>
+   </p>
+  </div>
+ </body>
+ </html>`);
+
+ w.document.close();
+}
+
+/* PROFILE */
+function profilePage(){
+ if(!currentUser){
+  return `
+  <section class="page container">
+   <div class="empty">
+    <h3>Please sign in</h3>
+    <button class="primary" onclick="openLogin()">SIGN IN</button>
+   </div>
+  </section>`;
+ }
+
+ return `
+ <section class="page container">
+  <span class="eyebrow">YOUR PERSONAL SPACE</span>
+  <h1 class="page-title">My Account</h1>
+
+  <div class="panel" style="max-width:650px">
+   <h3>Account Information</h3>
+
+   <p style="font-size:12px;line-height:2.2">
+    Name: <b>${esc(currentUser.name)}</b><br>
+    Email: ${esc(currentUser.email)}<br>
+    WhatsApp: ${esc(currentUser.phone||'-')}<br>
+    Account type: ${esc(currentUser.role)}
+   </p>
+
+   <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px">
+    <button class="primary" onclick="go('orders')">MY ORDERS</button>
+
+    ${isStaff()?`
+     <button class="secondary" onclick="go('${role()==='admin'?'admin':'cashier'}')">
+      OPEN DASHBOARD
+     </button>
+    `:''}
+
+    <button class="danger" onclick="logout()">SIGN OUT</button>
+   </div>
+  </div>
+ </section>`;
+}
+
+/* ADMIN DASHBOARD */
+function adminPage(){
+ if(role()!=='admin'){
+  return `
+  <section class="page container">
+   <div class="empty">
+    <h3>Administrator access required</h3>
+    <button class="primary" onclick="openLogin()">ADMIN SIGN IN</button>
+   </div>
+  </section>`;
+ }
+
+ const revenue=orders
+  .filter(o=>o.paid==='Dibayar'&&o.status!=='Dibatalkan')
+  .reduce((s,o)=>s+o.total,0);
+
+ const pending=orders.filter(o=>o.status==='Menunggu Konfirmasi').length;
+
+ return `
+ <section class="page container">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap">
+   <div>
+    <span class="eyebrow">LAVÉA PRIVATE MANAGEMENT</span>
+    <h1 class="page-title">Admin Dashboard</h1>
+    <p style="font-size:11px;color:var(--muted)">Welcome back, ${esc(currentUser.name)}.</p>
+   </div>
+
+   <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <button class="primary" onclick="go('cashier')">CASHIER PORTAL →</button>
+    <button class="secondary" onclick="go('home')">VIEW STORE</button>
+   </div>
+  </div>
+
+  <div class="stats">
+   <div class="stat"><span>TOTAL PRODUCTS</span><h2>${products.length}</h2></div>
+   <div class="stat"><span>TOTAL ORDERS</span><h2>${orders.length}</h2></div>
+   <div class="stat"><span>PENDING ORDERS</span><h2>${pending}</h2></div>
+   <div class="stat"><span>PAID REVENUE</span><h2 style="font-size:20px">${money(revenue)}</h2></div>
+  </div>
+
+  <div class="chart-box">
+   <h3>Sales Performance</h3>
+   <p>Paid revenue overview · Last 7 days</p>
+   <canvas id="adminChart"></canvas>
+  </div>
+
+  <div class="panel">
+   <div style="display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap">
+    <h3>Product Collection</h3>
+    <button class="primary" onclick="openProductForm()">+ ADD NEW PRODUCT</button>
+   </div>
+
+   <div class="table-wrap">
+    <table>
+     <thead>
+      <tr>
+       <th>PRODUCT</th>
+       <th>CATEGORY</th>
+       <th>PRICE</th>
+       <th>STOCK</th>
+       <th>STATUS</th>
+       <th>ACTION</th>
+      </tr>
+     </thead>
+
+     <tbody>
+      ${products.map(p=>`
+       <tr>
+        <td>
+         <div style="display:flex;align-items:center;gap:10px">
+          <img
+           src="${esc(productImage(p.image))}"
+           alt="${esc(p.name)}"
+           style="width:42px;height:48px;object-fit:cover"
+           onerror="fallbackImage(this)"
+          >
+          <b>${esc(p.name)}</b>
+         </div>
+        </td>
+
+        <td>${esc(p.category)}</td>
+        <td>${money(p.price)}</td>
+        <td>${p.stock}</td>
+
+        <td>
+         <span class="status ${p.active?'ok':'cancel'}">
+          ${p.active?'ACTIVE':'INACTIVE'}
+         </span>
+        </td>
+
+        <td>
+         <button class="secondary" onclick="openProductForm(${p.id})">EDIT</button>
+         <button class="danger" onclick="deleteProduct(${p.id})">DELETE</button>
+        </td>
+       </tr>
+      `).join('')}
+     </tbody>
+    </table>
+   </div>
+  </div>
+
+  <div class="panel">
+   <h3>Order Management</h3>
+   ${orderTable()}
+  </div>
+ </section>`;
+}
+
+/* PRODUCT MANAGEMENT */
+function openProductForm(id=null){
+ if(role()!=='admin')return toast('Fitur khusus admin.');
+
+ const p=products.find(x=>x.id===id);
+
+ $('modalRoot').innerHTML=`
+ <div class="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+   <button class="modal-close" onclick="closeModal()">×</button>
+
+   <div class="modal-heading">
+    <span class="eyebrow">COLLECTION MANAGEMENT</span>
+    <h2>${p?'Edit Product':'New Product'}</h2>
+   </div>
+
+   <form onsubmit="saveProduct(event,${id===null?'null':id})">
+    <div class="form-group">
+     <label>PRODUCT NAME</label>
+     <input class="field" id="pName" value="${esc(p?.name||'')}" required>
+    </div>
+
+    <div class="form-grid" style="margin-top:14px">
+     <div class="form-group">
+      <label>CATEGORY</label>
+      <select id="pCategory">
+       ${['Voal','Pashmina','Square','Motif','Exclusive'].map(c=>`
+        <option ${p?.category===c?'selected':''}>${c}</option>
+       `).join('')}
+      </select>
+     </div>
+
+     <div class="form-group">
+      <label>COLOR</label>
+      <input class="field" id="pColor" value="${esc(p?.color||'')}" required>
+     </div>
+
+     <div class="form-group">
+      <label>PRICE</label>
+      <input class="field" id="pPrice" type="number" min="1" value="${p?.price||''}" required>
+     </div>
+
+     <div class="form-group">
+      <label>STOCK</label>
+      <input class="field" id="pStock" type="number" min="0" value="${p?.stock??10}" required>
+     </div>
+    </div>
+
+    <div class="form-group" style="margin-top:14px">
+     <label>IMAGE URL</label>
+     <input class="field" id="pImage" value="${esc(p?.image||photos[0])}" placeholder="https://..." required>
+     <small style="display:block;color:var(--muted);font-size:10px;margin-top:7px">
+      Gunakan URL gambar langsung yang berakhiran format gambar atau URL gambar yang bisa dibuka.
+     </small>
+    </div>
+
+    <div class="form-group" style="margin-top:14px">
+     <label>DESCRIPTION</label>
+     <textarea class="field" id="pDescription" rows="3">${esc(p?.description||'')}</textarea>
+    </div>
+
+    <label style="font-size:11px;display:block;margin-top:15px">
+     <input type="checkbox" id="pActive" ${p?.active!==false?'checked':''}>
+     Show this product in the store
+    </label>
+
+    <button class="primary" style="width:100%;margin-top:22px">SAVE PRODUCT</button>
+   </form>
+  </div>
+ </div>`;
+}
+
+function saveProduct(e,id){
+ e.preventDefault();
+ if(role()!=='admin')return;
+
+ const d={
+  name:$('pName').value.trim(),
+  category:$('pCategory').value,
+  color:$('pColor').value.trim(),
+  price:Number($('pPrice').value),
+  stock:Number($('pStock').value),
+  image:$('pImage').value.trim(),
+  description:$('pDescription').value.trim(),
+  active:$('pActive').checked
+ };
+
+ if(!d.name||!d.image||d.price<=0||d.stock<0){
+  return toast('Periksa kembali data produk.');
+ }
+
+ if(id!==null){
+  const i=products.findIndex(p=>p.id===id);
+  if(i>=0)products[i]={...products[i],...d};
+ }else{
+  products.unshift({
+   id:Date.now(),
+   ...d,
+   createdAt:Date.now()
+  });
+ }
+
+ persist();
+ closeModal();
+ render();
+ toast('Product saved successfully.');
+}
+
+function deleteProduct(id){
+ if(role()!=='admin')return;
+
+ if(!confirm('Hapus produk ini dari koleksi?'))return;
+
+ products=products.filter(p=>p.id!==id);
+ cart=cart.filter(x=>x.productId!==id);
+
+ persist();
+ render();
+ toast('Produk berhasil dihapus.');
+}
+
+/* CASHIER DASHBOARD */
+function cashierPage(){
+ if(role()!=='kasir'&&role()!=='admin'){
+  return `
+  <section class="page container">
+   <div class="empty">
+    <h3>Cashier access required</h3>
+    <button class="primary" onclick="openLogin()">CASHIER SIGN IN</button>
+   </div>
+  </section>`;
+ }
+
+ const today=new Date().toDateString();
+
+ const todays=orders.filter(o=>
+  new Date(o.timestamp).toDateString()===today
+ );
+
+ const paid=todays.filter(o=>
+  o.paid==='Dibayar'&&o.status!=='Dibatalkan'
+ );
+
+ const revenue=paid.reduce((s,o)=>s+o.total,0);
+
+ return `
+ <section class="page container">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap">
+   <div>
+    <span class="eyebrow">LAVÉA STORE OPERATIONS</span>
+    <h1 class="page-title">Cashier Dashboard</h1>
+    <p style="font-size:11px;color:var(--muted)">Welcome, ${esc(currentUser.name)}.</p>
+   </div>
+
+   <div style="display:flex;gap:8px;flex-wrap:wrap">
+    ${role()==='admin'?`
+     <button class="primary" onclick="go('admin')">← ADMIN PORTAL</button>
+    `:''}
+    <button class="secondary" onclick="go('home')">VIEW STORE</button>
+   </div>
+  </div>
+
+  <div class="stats">
+   <div class="stat"><span>ORDERS TODAY</span><h2>${todays.length}</h2></div>
+   <div class="stat"><span>PAID TODAY</span><h2>${paid.length}</h2></div>
+   <div class="stat"><span>TODAY'S REVENUE</span><h2 style="font-size:20px">${money(revenue)}</h2></div>
+   <div class="stat"><span>PRODUCT STOCK</span><h2>${products.reduce((s,p)=>s+Number(p.stock),0)}</h2></div>
+  </div>
+
+  <div class="chart-box">
+   <h3>Daily Sales Overview</h3>
+   <p>Paid transactions · Last 7 days</p>
+   <canvas id="cashierChart"></canvas>
+  </div>
+
+  <div class="panel">
+   <h3>Transaction & Order Management</h3>
+   ${orderTable()}
+  </div>
+ </section>`;
+}
+
+/* ORDER TABLE */
+function orderTable(){
+ if(!orders.length){
+  return '<div class="empty"><h3>No transactions yet</h3><p>Pesanan pelanggan akan muncul di sini.</p></div>';
+ }
+
+ return `
+ <div class="table-wrap">
+  <table>
+   <thead>
+    <tr>
+     <th>INVOICE</th>
+     <th>CUSTOMER</th>
+     <th>DATE</th>
+     <th>TOTAL</th>
+     <th>PAYMENT</th>
+     <th>STATUS</th>
+     <th>ACTION</th>
+    </tr>
+   </thead>
+
+   <tbody>
+    ${orders.map(o=>`
+     <tr>
+      <td><b>${esc(o.id)}</b></td>
+      <td>${esc(o.customer)}</td>
+      <td>${dateText(o.timestamp)}</td>
+      <td>${money(o.total)}</td>
+      <td>${esc(o.payment)}</td>
+      <td>
+       <span class="status ${o.status==='Selesai'?'ok':o.status==='Dibatalkan'?'cancel':''}">
+        ${esc(o.status)}
+       </span>
+      </td>
+      <td>
+       <button class="secondary" onclick="orderDetail('${o.id}')">DETAIL</button>
+      </td>
+     </tr>
+    `).join('')}
+   </tbody>
+  </table>
+ </div>`;
+}
+
+/* ORDER DETAIL */
+function orderDetail(id){
+ if(!isStaff())return;
+
+ const o=orders.find(x=>x.id===id);
+ if(!o)return;
+
+ $('modalRoot').innerHTML=`
+ <div class="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+   <button class="modal-close" onclick="closeModal()">×</button>
+
+   <span class="eyebrow">ORDER MANAGEMENT</span>
+   <h2 style="font:30px var(--serif);color:var(--brown);margin:12px 0">${esc(o.id)}</h2>
+
+   <p style="font-size:11px;line-height:2">
+    Customer: <b>${esc(o.customer)}</b><br>
+    WhatsApp: ${esc(o.phone)}<br>
+    Address: ${esc(o.address)}<br>
+    Payment: ${esc(o.payment)}<br>
+    Note: ${esc(o.note||'-')}
+   </p>
+
+   <hr style="border:0;border-top:1px solid var(--line);margin:18px 0">
+
+   ${o.items.map(i=>`
+    <div style="display:flex;justify-content:space-between;font-size:11px;margin:12px 0">
+     <span>${esc(i.name)} × ${i.quantity}</span>
+     <b>${money(i.price*i.quantity)}</b>
+    </div>
+   `).join('')}
+
+   <hr style="border:0;border-top:1px solid var(--line);margin:18px 0">
+
+   <h3>Total: ${money(o.total)}</h3>
+
+   <div class="form-group" style="margin-top:20px">
+    <label>PAYMENT STATUS</label>
+    <select id="detailPaid">
+     ${['Belum Dibayar','Dibayar'].map(s=>`
+      <option ${o.paid===s?'selected':''}>${s}</option>
+     `).join('')}
+    </select>
+   </div>
+
+   <div class="form-group" style="margin-top:13px">
+    <label>ORDER STATUS</label>
+    <select id="detailStatus">
+     ${['Menunggu Konfirmasi','Diproses','Dikirim','Selesai','Dibatalkan'].map(s=>`
+      <option ${o.status===s?'selected':''}>${s}</option>
+     `).join('')}
+    </select>
+   </div>
+
+   <button class="primary" style="width:100%;margin-top:20px" onclick="updateOrder('${o.id}')">
+    SAVE CHANGES
+   </button>
+
+   <button class="secondary" style="width:100%;margin-top:9px" onclick="printReceipt('${o.id}')">
+    PRINT RECEIPT
+   </button>
+
+   <button class="success" style="width:100%;margin-top:9px" onclick="sendOrderWhatsApp('${o.id}')">
+    CONTACT CUSTOMER VIA WHATSAPP
+   </button>
+  </div>
+ </div>`;
+}
+
+function updateOrder(id){
+ if(!isStaff())return;
+
+ const o=orders.find(x=>x.id===id);
+ if(!o)return;
+
+ const old=o.status;
+ const newStatus=$('detailStatus').value;
+ let newPaid=$('detailPaid').value;
+
+ if(newStatus==='Dibatalkan'){
+  newPaid='Belum Dibayar';
+ }
+
+ // Validasi seluruh stok lebih dahulu sebelum mengubah data apa pun.
+ if(old==='Dibatalkan'&&newStatus!=='Dibatalkan'){
+  for(const i of o.items){
+   const p=products.find(x=>Number(x.id)===Number(i.productId));
+   if(!p||Number(p.stock)<Number(i.quantity)){
+    return toast('Stok tidak cukup untuk mengaktifkan pesanan.');
+   }
+  }
+ }
+
+ if(old!=='Dibatalkan'&&newStatus==='Dibatalkan'){
+  o.items.forEach(i=>{
+   const p=products.find(x=>Number(x.id)===Number(i.productId));
+   if(p)p.stock=Number(p.stock||0)+Number(i.quantity||0);
+  });
+ }
+
+ if(old==='Dibatalkan'&&newStatus!=='Dibatalkan'){
+  o.items.forEach(i=>{
+   const p=products.find(x=>Number(x.id)===Number(i.productId));
+   p.stock=Number(p.stock||0)-Number(i.quantity||0);
+  });
+ }
+
+ o.status=newStatus;
+ o.paid=newPaid;
+
+ persist();
+ closeModal();
+ render();
+ toast('Order updated successfully.');
+}
+
+function sendOrderWhatsApp(id){
+ if(!isStaff())return toast('Akses khusus admin dan kasir.');
+ const o=orders.find(x=>x.id===id);
+ if(!o)return;
+
+ const phone=String(o.phone).replace(/\D/g,'').replace(/^0/,'62');
+ const msg=`Halo ${o.customer}, kami dari LAVÉA ingin menginformasikan pesanan ${o.id}. Status pesanan: ${o.status}. Terima kasih.`;
+
+ window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`,'_blank');
+}
+
+/* SALES CHART */
+function drawSalesChart(id){
+ const canvas=$(id);
+ if(!canvas)return;
+
+ const rect=canvas.getBoundingClientRect();
+ if(!rect.width)return;
+
+ const dpr=window.devicePixelRatio||1;
+
+ canvas.width=rect.width*dpr;
+ canvas.height=250*dpr;
+
+ const ctx=canvas.getContext('2d');
+ ctx.setTransform(dpr,0,0,dpr,0,0);
+
+ const w=rect.width;
+ const h=250;
+ const left=58;
+ const right=15;
+ const top=18;
+ const bottom=38;
+ const cw=w-left-right;
+ const ch=h-top-bottom;
+
+ const days=[];
+
+ for(let i=6;i>=0;i--){
+  const d=new Date();
+  d.setDate(d.getDate()-i);
+  days.push(d);
+ }
+
+ const vals=days.map(d=>{
+  const start=new Date(
+   d.getFullYear(),
+   d.getMonth(),
+   d.getDate()
+  ).getTime();
+
+  return orders
+   .filter(o=>
+    o.timestamp>=start&&
+    o.timestamp<start+86400000&&
+    o.paid==='Dibayar'&&
+    o.status!=='Dibatalkan'
+   )
+   .reduce((s,o)=>s+o.total,0);
+ });
+
+ const max=Math.max(...vals,100000);
+ const unit=Math.ceil(max/4/100000)*100000;
+ const topValue=unit*4;
+
+ ctx.clearRect(0,0,w,h);
+ ctx.font='10px DM Sans';
+ ctx.textAlign='right';
+ ctx.fillStyle='#94877b';
+
+ for(let i=0;i<=4;i++){
+  const y=top+ch-(ch*i/4);
+  const v=topValue*i/4;
+
+  ctx.strokeStyle='#e9e0d4';
+  ctx.beginPath();
+  ctx.moveTo(left,y);
+  ctx.lineTo(w-right,y);
+  ctx.stroke();
+
+  ctx.fillText(
+   v>=1000000
+    ?(v/1000000).toFixed(1)+' jt'
+    :Math.round(v/1000)+' rb',
+   left-8,
+   y+4
+  );
+ }
+
+ const step=cw/7;
+ const bw=Math.min(36,step*.48);
+
+ vals.forEach((v,i)=>{
+  const bh=(v/topValue)*ch;
+  const x=left+step*i+step/2-bw/2;
+  const y=top+ch-bh;
+
+  ctx.fillStyle='#b69a6a';
+  ctx.fillRect(x,y,bw,bh);
+
+  ctx.fillStyle='#94877b';
+  ctx.textAlign='center';
+
+  ctx.fillText(
+   days[i].toLocaleDateString('id-ID',{weekday:'short'}),
+   left+step*i+step/2,
+   h-12
+  );
+ });
+}
+
+/* ABOUT */
+function aboutPage(){
+ return `
+ <section class="page container">
+  <div class="section-heading">
+   <span class="eyebrow">A LITTLE ABOUT US</span>
+   <h2>The LAVÉA Story</h2>
+   <p>Elegance in Every Fold.</p>
+  </div>
+
+  <div class="panel" style="padding:55px 25px;text-align:center">
+   <span class="eyebrow">THE ART OF MODEST ELEGANCE</span>
+   <h2 style="font:36px var(--serif);color:var(--brown);margin:18px 0">
+    A Story of Grace & Simplicity
+   </h2>
+
+   <p style="max-width:700px;margin:auto;font-size:12px;line-height:2.2;color:var(--muted)">
+    LAVÉA hadir sebagai ruang bagi perempuan untuk merayakan keanggunan melalui kesederhanaan.
+    Kami percaya bahwa gaya bukan hanya tentang apa yang dikenakan, tetapi juga tentang
+    bagaimana seseorang mengekspresikan dirinya. Melalui koleksi hijab yang timeless,
+    kami ingin menemani setiap cerita dengan sentuhan elegan.
+   </p>
+   <p style="max-width:700px;margin:18px auto 0;font-size:10px;line-height:1.9;color:var(--muted)">
+    Catatan demo: data akun, produk, keranjang, dan pesanan tersimpan di penyimpanan browser perangkat ini.
+   </p>
+  </div>
+ </section>`;
+}
+
+/* CONTACT */
+function contactPage(){
+ return `
+ <section class="page container">
+  <div class="section-heading">
+   <span class="eyebrow">WE WOULD LOVE TO HEAR FROM YOU</span>
+   <h2>Client Care</h2>
+   <p>We are always happy to assist you.</p>
+  </div>
+
+  <div class="panel" style="max-width:650px;margin:auto;text-align:center;padding:45px">
+   <h3>How may we help you?</h3>
+   <p style="font-size:12px;line-height:2;color:var(--muted)">
+    Hubungi tim LAVÉA untuk informasi produk, pesanan, maupun pertanyaan lainnya.
+   </p>
+
+   <button class="primary" style="margin-top:22px"
+    onclick="window.open('https://wa.me/6281336019326','_blank')">
+    CONTACT VIA WHATSAPP
+   </button>
+  </div>
+ </section>`;
+}
+
+/* MAIN RENDER */
+function render(){
+ const pages={
+  home:homePage,
+  products:productsPage,
+  cart:cartPage,
+  checkout:checkoutPage,
+  orders:ordersPage,
+  profile:profilePage,
+  admin:adminPage,
+  cashier:cashierPage,
+  about:aboutPage,
+  contact:contactPage
+ };
+
+ $('app').innerHTML=(pages[currentPage]||homePage)();
+
+ updateHeader();
+
+ if(currentPage==='admin'){
+  requestAnimationFrame(()=>drawSalesChart('adminChart'));
+ }
+
+ if(currentPage==='cashier'){
+  requestAnimationFrame(()=>drawSalesChart('cashierChart'));
+ }
+}
+
+window.addEventListener('resize',()=>{
+ if(currentPage==='admin')drawSalesChart('adminChart');
+ if(currentPage==='cashier')drawSalesChart('cashierChart');
+});
+
+/* INITIALIZE */
+persist();
+render();
+updateHeader();
+
+</script>
+</body>
+</html>
